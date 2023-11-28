@@ -37,18 +37,39 @@ function render(variables = {}) {
           <h1>${variables.name === null ? "" : variables.name} ${
     variables.lastName === null ? "" : variables.lastName
   }</h1>
-          <h3>${variables.twitter === null ? "" : variables.twitter}</h3>
-          <h3>${variables.github === null ? "" : variables.github}</h3>
-          <h3>${variables.linkedin === null ? "" : variables.linkedin}</h3>
-          <h3>${variables.instagram === null ? "" : variables.instagram}</h3>
           <h2>${variables.role}</h2>
           <h3>${variables.city}, ${variables.country}</h3>
-          <ul class=${variables.socialMediaPosition ||
-            right} ${variables.socialMediaPosition || left}>
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <ul class="${variables.socialMediaPosition ||
+            "position-right" ||
+            "position-left"}">
+            <li>
+            ${
+              variables.twitter
+                ? `<a href="https://twitter.com/${variables.twitter}"><i class="fab fa-twitter"></i></a>`
+                : `<a href="https://twitter.com/4geeksacademy"><i class="fa-brands fa-twitter"></i></a>`
+            }
+            </li>
+            <li>
+            ${
+              variables.github
+                ? `<a href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a>`
+                : `<a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a>`
+            }
+            </li>
+            <li>
+            ${
+              variables.linkedin
+                ? `<a href="https://linkedin.com/${variables.linkedin}"><i class="fab fa-linkedin"></i></a>`
+                : `<a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a>`
+            }
+            </li>
+            <li>
+            ${
+              variables.instagram
+                ? `<a href="https://instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a>`
+                : `<a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a>`
+            }
+            </li>
           </ul>
         </div>
     `;
